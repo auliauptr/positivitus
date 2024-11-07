@@ -1,0 +1,104 @@
+@use '../../../mixins' as *;
+
+.team__card {
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    height: 331px;
+    border-radius: 45px;
+    padding: 40px 35px 63.18px 35px;
+    box-shadow: inset 0 0 0 1px var(--dark-color), 0 5px 0 0 var(--dark-color);
+    @include tablet {
+        width: 335px;
+    }
+    @include mobile {
+        width: 100%;
+        padding: 40px 50px;
+    }
+
+    .tc__top {
+        display: flex;
+        padding-bottom: 24px;
+        position: relative;
+        .tc__img {
+            width: 95px;
+            height: 95px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            @include tablet {
+                width: 70px;
+                height: 70px;
+            }
+            @include mobile {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        .tc__identity {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 20px;
+            left: 68%;
+            transform: translateX(-50%);
+            @include tablet {
+                left: 72%;
+                bottom: 22px;
+            }
+            @include mobile {
+                left: 75%;
+                bottom: 24px;
+            }
+            .tc__name {
+                text-transform: capitalize;
+                font-size: var(--h4-d);
+                font-weight: 500;
+                @include tablet {
+                    font-size: 18px;
+                }
+                @include mobile {
+                    font-size: var(--h4-m);
+                }
+            }
+            .tc__job {
+                width: 200px;
+                font-size: 18px;
+                @include tablet {
+                    font-size: 16px;
+                }
+                @include mobile {
+                    font-size: var(--p-m);
+                }
+            }
+        }
+        .tc__link {
+            position: absolute;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background-color: black;
+            border-radius: 50%;
+            .icon {
+                color: var(--green-color);
+                font-size: 20px;
+            }
+        }
+    }
+    .tc__bottom {
+        width: 100%;
+        padding-top: 24px;
+        font-size: var(--p-d);
+        @include tablet {
+            font-size: 18px;
+        }
+        @include mobile {
+            font-size: var(--p-m);
+        }
+    }
+}

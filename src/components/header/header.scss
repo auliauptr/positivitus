@@ -1,0 +1,237 @@
+@use '../../mixins' as *;
+
+.header {
+    margin-top: 70px;
+    .header__content {
+        display: flex;
+        gap: 108px;
+        @include tablet {
+            gap: 50px;
+        }
+        &.mobile {
+            display: none;
+        }
+        .header__content-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            max-width: 531px;
+            h1 {
+                font-size: var(--h1-d);
+                @include tablet {
+                    font-size: 45px;
+                }
+            }
+            p {
+                font-size: var(--p-d);
+                max-width: 498px;
+                @include tablet {
+                    font-size: 18px;
+                }
+            }
+            button {
+                width: 264px;
+                height: 68px;
+                font-size: 20px;
+                background-color: var(--dark-color);
+                color: white;
+                border: none;
+                border-radius: 14px;
+                transition: all 0.3s ease;
+                @include tablet {
+                    height: 60px;
+                }
+                &:hover {
+                    background-color: var(--white);
+                    border: 1px solid var(--dark-color);
+                    color: var(--white);
+                }
+            }
+        }
+        .header__content-right {
+            position: relative;
+            width: 100%;
+            flex: 1;
+            img {
+                object-fit: contain;
+            }
+            .mainImg {
+                width: 600px;
+                height: 515px;
+                object-fit: contain;
+            }
+            .star1 {
+                position: absolute;
+                width: 70px;
+                height: 70px;
+                left: 30px;
+                bottom: 170px;
+                animation: fadeInOut 3s ease-in-out infinite;
+                @keyframes fadeInOut {
+                    0%,
+                    100% {
+                        opacity: 0;
+                    }
+                    50% {
+                        opacity: 1;
+                    }
+                }
+            }
+            .star2 {
+                position: absolute;
+                width: 35.25px;
+                height: 35.25px;
+                bottom: 120px;
+                left: 190px;
+                animation: fadeInOut 3.2s ease-in-out infinite;
+                @keyframes fadeInOut {
+                    0%,
+                    100% {
+                        opacity: 0;
+                    }
+                    50% {
+                        opacity: 1;
+                    }
+                }
+            }
+            .icon1,
+            .icon2,
+            .icon3,
+            .icon4 {
+                position: absolute;
+                &:hover {
+                    scale: 1.1;
+                }
+            }
+            .icon1 {
+                bottom: 42%;
+                right: 10px;
+                width: 100px;
+                height: 100px;
+            }
+            .icon2 {
+                bottom: 60%;
+                right: -20px;
+                width: 94.05px;
+                height: 94.05px;
+            }
+            .icon3 {
+                top: 20px;
+                right: -30px;
+                width: 94.91px;
+                height: 94.91px;
+            }
+            .icon4 {
+                right: 11%;
+                top: 5px;
+                width: 98.72px;
+                height: 98.72px;
+            }
+        }
+
+        @include tablet {
+            .header__content-right {
+                .star1 {
+                    width: 70px;
+                    left: 20px;
+                }
+                .star2 {
+                    width: 25px;
+                    height: 25px;
+                    bottom: 135px;
+                    left: 190px;
+                }
+                .icon1 {
+                    bottom: 38%;
+                    right: 0;
+                    width: 65px;
+                    height: 100px;
+                }
+                .icon2 {
+                    top: 32%;
+                    right: -20px;
+                    width: 70px;
+                    height: 70px;
+                }
+                .icon3 {
+                    top: 18%;
+                    right: -30px;
+                    width: 70px;
+                    height: 70px;
+                }
+                .icon4 {
+                    top: 18%;
+                    right: 40px;
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+        }
+
+        @include mobile {
+            flex-direction: column;
+            width: 100%;
+            &.desktop {
+                display: none;
+            }
+            &.mobile {
+                display: flex;
+            }
+            .header__content-left {
+                h1 {
+                    font-size: var(--h1-m);
+                }
+                p {
+                    font-size: var(--p-m);
+                }
+                button {
+                    width: 100%;
+                }
+            }
+            .header__content-right {
+                .mainImg {
+                    width: 400px;
+                    height: 100%;
+                    object-fit: contain;
+                }
+                .star1 {
+                    width: 60px;
+                    height: 60px;
+                    left: 40px;
+                    bottom: 80px;
+                }
+                .star2 {
+                    width: 25px;
+                    height: 25px;
+                    bottom: 38px;
+                    left: 190px;
+                }
+                .icon1 {
+                    bottom: 38%;
+                    right: 40px;
+                    width: 65px;
+                    height: 100px;
+                }
+                .icon2 {
+                    top: 18%;
+                    right: 30px;
+                    width: 60px;
+                    height: 60px;
+                }
+                .icon3 {
+                    top: -10px;
+                    right: 20px;
+                    width: 65px;
+                    height: 65px;
+                }
+                .icon4 {
+                    right: 20%;
+                    top: -20px;
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+        }
+    }
+}

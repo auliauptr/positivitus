@@ -1,0 +1,52 @@
+@use '../../mixins' as *;
+
+.team {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .team__cards {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        transition: margin-bottom 0.3s ease;
+        .cards {
+            margin-bottom: 160px;
+            opacity: 0;
+            max-height: 0;
+            transition: all 0.5s ease;
+        }
+        .cards.show {
+            opacity: 1;
+            max-height: 200px;
+        }
+    }
+    .team__cards.btn__position {
+        margin-bottom: 160px;
+        @include mobile {
+            margin-bottom: 80%;
+        }
+    }
+    .team__btn {
+        margin-bottom: 80px;
+        position: absolute;
+        bottom: 0px;
+        right: 0;
+        border-radius: 14px;
+        border: none;
+        font-size: 20px;
+        background-color: var(--dark-color);
+        color: var(--white-color);
+        width: 269px;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        cursor: pointer;
+        @include mobile {
+            margin-bottom: 60%;
+            width: 100%;
+        }
+    }
+}

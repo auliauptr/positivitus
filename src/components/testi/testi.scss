@@ -1,0 +1,139 @@
+@use '../../mixins' as *;
+
+.testi {
+    width: 100%;
+    // margin-top: -120px;
+    @include mobile {
+        margin-top: -50%;
+    }
+    .testi__container {
+        background-color: var(--dark-color);
+        padding: 84px 0 68px 0;
+        border-radius: 45px;
+        @include mobile {
+            padding: 30px;
+        }
+        .testi__cards {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            gap: 50px;
+            @include mobile {
+                gap: 10px;
+            }
+            .testi__block {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                height: 425px;
+                box-sizing: border-box;
+                transition: all 0.5s ease-in-out;
+                .testi__slider {
+                    border: 1px solid var(--green-color);
+                    width: 600px;
+                    height: 230px;
+                    border-radius: 45px;
+                    position: relative;
+                    padding: 48px 52px;
+                    display: flex;
+                    align-items: center;
+                    @include mobile {
+                        padding: 20px;
+                        height: 300px;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -39px;
+                        left: 50px;
+                        width: 0;
+                        height: 0;
+                        border-left: 30px solid transparent;
+                        border-right: 30px solid transparent;
+                        border-top: 40px solid var(--dark-color);
+                        background-color: transparent;
+                        box-sizing: content-box;
+                        @include mobile {
+                            bottom: -19px;
+                            left: 45px;
+                            border-left: 25px solid transparent;
+                            border-right: 25px solid transparent;
+                            border-top: 20px solid var(--dark-color);
+                        }
+                    }
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: -40px;
+                        left: 50px;
+                        width: 0;
+                        height: 0;
+                        border-left: 30px solid transparent;
+                        border-right: 30px solid transparent;
+                        border-top: 40px solid var(--green-color);
+                        background-color: transparent;
+                        @include mobile {
+                            bottom: -20px;
+                            left: 45px;
+                            border-left: 25px solid transparent;
+                            border-right: 25px solid transparent;
+                            border-top: 20px solid var(--green-color);
+                        }
+                    }
+                    p {
+                        color: var(--white-color);
+                        font-size: var(--p-d);
+                        @include mobile {
+                            font-size: var(--p-m);
+                        }
+                    }
+                }
+                .test__name {
+                    position: absolute;
+                    bottom: 22%;
+                    left: 12%;
+                    @include mobile {
+                        bottom: 6%;
+                    }
+                    h4 {
+                        font-size: var(--h4-d);
+                        color: var(--green-color);
+                        @include mobile {
+                            font-size: var(--h4-m);
+                        }
+                    }
+                    p {
+                        font-size: var(--p-d);
+                        color: var(--grey-color);
+                        @include mobile {
+                            font-size: var(--p-m);
+                        }
+                    }
+                }
+            }
+        }
+        .testi__slider-nav {
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 180px;
+            @include mobile {
+                gap: 10px;
+                justify-content: space-between;
+            }
+            .nav__arrow {
+                font-size: 25px;
+                cursor: pointer;
+            }
+            .nav__indicators {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,146 @@
+@use '../../mixins' as *;
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    margin-top: 40px;
+    .navbar__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .navbar__logo {
+            width: 200px;
+            height: 28px;
+            @include tablet {
+                width: 150px;
+                height: 28px;
+            }
+            @include mobile {
+                width: 112px;
+                height: 19px;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        // MOBILE
+        .navbar__menu {
+            display: none;
+            position: absolute;
+            right: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            .icon {
+                font-size: 30px;
+                transition: transform 0.3s ease;
+                &.icon-close {
+                    opacity: 0;
+                    // transform: rotate(-90deg);
+                }
+                &.icon-open {
+                    opacity: 1;
+                }
+            }
+            &.menu__open {
+                .icon-close {
+                    opacity: 1;
+                    transform: rotate(45deg);
+                }
+                .icon-open {
+                    opacity: 0;
+                    transform: rotate(90deg);
+                }
+            }
+            @include mobile {
+                display: block;
+            }
+        }
+
+        .navbar__top {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .navbar__contents {
+            display: flex;
+            align-items: center;
+            .navbar__items {
+                display: flex;
+                align-items: center;
+                gap: 40px;
+                @include tablet {
+                    gap: 20px;
+                    justify-content: space-between;
+                }
+            }
+            .navbar__button {
+                height: 100%;
+                margin-left: 40px;
+                font-size: 16px;
+                width: fit-content;
+                padding: 20px 35px;
+                border-radius: 14px;
+                height: 100%;
+                border: 1px solid var(--dark-color);
+                background-color: transparent;
+                transition: all 0.3s ease;
+                &:hover {
+                    background-color: var(--dark-color);
+                    color: var(--white-color);
+                }
+                @include tablet {
+                    display: none;
+                }
+
+                @include mobile {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 0;
+                    width: 90%;
+                    height: 50px;
+                    margin-top: 30px;
+                    margin-left: 0;
+                    background-color: var(--white-color);
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    &:hover {
+                        background-color: transparent;
+                        border: 1px solid var(--white-color);
+                        color: var(--white-color);
+                    }
+                }
+            }
+            &.desktop {
+                @include mobile {
+                    display: none;
+                }
+            }
+            &.mobile {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                flex-direction: column;
+                background-color: var(--dark-color);
+                color: white;
+                padding: 40px 0;
+                z-index: 1000;
+                .navbar__items {
+                    flex-direction: column;
+                }
+                &.contents__open {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

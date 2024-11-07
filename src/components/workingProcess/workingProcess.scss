@@ -1,0 +1,116 @@
+@use '../../mixins' as *;
+
+.wp {
+    width: 100%;
+    .wp__contents {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        .wp__content {
+            width: 100%;
+            padding: 41px 57px 41px 60px;
+            box-shadow: inset 0 0 0 1px var(--dark-color),
+                0 5px 0 var(--dark-color);
+            border-radius: 45px;
+            outline: 1px solid var(--dark-color);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            @include mobile {
+                padding: 30px;
+            }
+            .wp__content-top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .wp__content-title {
+                    display: flex;
+                    align-items: center;
+                    gap: 25px;
+                    @include tablet {
+                        gap: 45px;
+                    }
+                    @include mobile {
+                        width: max-content;
+                    }
+                    span {
+                        font-size: 60px;
+                        @include tablet {
+                            font-size: 50px;
+                        }
+                        @include mobile {
+                            font-size: 30px;
+                        }
+                    }
+                    h1 {
+                        font-size: 30px;
+                        font-weight: 500;
+                        @include tablet {
+                            font-size: 22px;
+                        }
+                        @include mobile {
+                            width: 200px;
+                            font-size: var(--h4-m);
+                        }
+                    }
+                }
+                .wp__content-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 58px;
+                    height: 58px;
+                    border: 1px solid var(--dark-color);
+                    background-color: var(--white-color);
+                    border-radius: 50%;
+                    font-size: 1.4rem;
+                    @include tablet {
+                        width: 48px;
+                        height: 48px;
+                        font-size: 1.1rem;
+                    }
+                    @include mobile {
+                        width: 30px;
+                        height: 30px;
+                        font-size: 0.9rem;
+                    }
+                }
+                .wp__content-btn.rotate {
+                    transform: rotate(360deg);
+                    transition: transform 0.7s ease;
+                }
+                .wp__content-btn.rotate2 {
+                    transform: rotate(180deg);
+                    transition: transform 0.7s ease;
+                }
+            }
+            .wp__content-text {
+                position: relative;
+                overflow: hidden;
+                opacity: 0;
+                max-height: 0px;
+                transition: max-height 0.5s ease, opacity 0.5s ease;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 1px;
+                    top: 40px;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: var(--dark-color);
+                }
+                p {
+                    margin-top: 70px;
+                }
+            }
+            .wp__content-text.open {
+                transition: max-height 0.5s ease-in, opacity 0.5s ease;
+                max-height: 600px;
+                opacity: 1;
+            }
+        }
+        .close {
+        }
+    }
+}
